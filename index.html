@@ -1,0 +1,84 @@
+<html>
+    <head><title>BlowsApp</title>
+        <script src="cipher/js/extra/jquery.js"></script>
+        
+        <script type="text/javascript" src="cipher/js/blowfish/javascript-blowfish-master/Blowfish.js"></script>
+    
+        <script type="text/javascript" src="cipher/js/rsa/compressed/pidcrypt_c.js"></script>  
+        <script type="text/javascript" src="cipher/js/rsa/compressed/pidcrypt_util_c.js"></script>  
+        <script type="text/javascript" src="cipher/js/rsa/compressed/asn1_c.js"></script>  
+        <script type="text/javascript" src="cipher/js/rsa/compressed/jsbn_c.js"></script>  
+        <script type="text/javascript" src="cipher/js/rsa/compressed/rng_c.js"></script>  
+        <script type="text/javascript" src="cipher/js/rsa/compressed/prng4_c.js"></script>  
+        <script type="text/javascript" src="cipher/js/rsa/compressed/rsa_c.js"></script>
+        <script type="text/javascript" src="cipher/js/rsa/certParser.js"></script>
+        
+        <script type="text/javascript" src="cipher/js/blowfish/fortuna-master/js/wxfz.js"></script> 
+        <script type="text/javascript" src="cipher/js/blowfish/fortuna-master/js/fortuna.js"></script>
+        <script type="text/javascript" src="cipher/js/blowfish/fortuna-master/js/sha256.js"></script>
+        <script type="text/javascript" src="cipher/js/blowfish/fortuna-master/js/udon-1.0.0-min.js"></script>
+        <script type="text/javascript" src="cipher/js/blowfish/fortuna-master/js/base64.js"></script> 
+        <script type="text/javascript" src="cipher/js/blowfish/fortuna-master/js/aes.js"></script> 
+        <script type="text/javascript" src="cipher/js/blowfish/fortuna-master/js/utf8.js"></script> 
+        
+        <link href="Home-Style.css" rel="stylesheet">
+        
+        <link rel="SHORTCUT ICON" href="favicon.ico" type="image/x-icon" />
+        <link rel="ICON" href="favicon.ico" type="image/ico" />
+        
+        <link href="Bootstrap/css/bootstrap.css" rel="stylesheet">
+        <script src="Bootstrap/js/bootstrap.js"></script>
+        
+        <script src="node/client/socket.io.js"></script>
+        
+        <script type="text/javascript" src="index_script.js"></script>
+    </head>
+
+    <body>
+        <body onload="setupConnection()">
+        <body onkeypress="enterPressed(event)"></body>
+            
+   <div class="jumbotron vertical-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-4 col-lg-4">
+                    <div id="left-panel-container">
+                        <div class="navbar-container">
+                        <img class="profile-pic-single" id="userphoto" src="">
+                            <div class="profile-name-single hidden-xs hidden-sm"><div id="username"></div></div>   
+                            <a data-toggle="dropdown" class="pull-right hidden-xs hidden-sm" href="#">
+                                <img class="menu-icon" src="ic_more_vert_black.png"></img>
+                            </a>
+                            <ul class="dropdown-menu pull-right hidden-xs hidden-sm">
+                                <li><a href="#" onclick=changepassword()>Cambia Password</a></li>
+                                <li><a href="#" onclick="location.href='uploader/upload.html';">Cambia immagine</a></li>
+                                <li><a href="#" onclick=registration()>Registrazione</a></li>
+                                <li><a href="#" onclick=deauthentication()>Logout</a></li>
+                            </ul>
+                        </div>
+                        <div id="list-container">
+                            <ul class="list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10 col-sm-10 col-md-7 col-lg-7">
+                    <div id="right-panel-container">
+                        <div class="navbar-container">
+                            <img class="profile-pic-single" id="photo" src="">
+                            <div class="profile-name-single"><div id="name"></div>
+                            <div id="isTyping"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="container" id="chat-container"></div>
+                        <div class="chatbar-container">
+                            <input id="chat-textbox" type="text" name="chat-textbox" placeholder="Inserisci un messaggio" onkeypress=type1()>
+                            <button id="send-button" type="button" onClick=read()>Invia</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>     
+    </body>
+</html>

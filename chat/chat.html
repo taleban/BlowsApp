@@ -1,0 +1,52 @@
+<html>
+    <head><title>- Registrazione turbo 2000 -</title>
+        <link rel="shortcut icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
+        <script type='text/javascript'>
+            var myRequest = null;
+
+            function CreateXmlHttpReq(handler) {
+                var xmlhttp = null;
+                try {
+                    xmlhttp = new XMLHttpRequest();
+                } catch (e) {
+                    try {
+                        xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+                    } catch (e) {
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                }
+                xmlhttp.onreadystatechange = handler;
+                return xmlhttp;
+            }
+
+            function myHandler() {
+                if (myRequest.readyState == 4 && myRequest.status == 200) {
+                    e = document.getElementById('spazio');
+                    e.innerHTML = myRequest.responseText;
+                }
+            }
+
+            function register() {
+                var nick = document.form.nickname.value;
+                var pass = document.form.password.value;
+                document.getElementById('spazio').innerHTML = "<span>Registrazione in corso ...</span>";
+                myRequest = CreateXmlHttpReq(myHandler);
+                myRequest.open("GET", "registration.php?nickname=" + escape(nick) + "&password=" + escape(pass));
+                myRequest.send(null);
+            }
+        </script>
+    </head>
+
+    <body>
+        <h2>Turn down for what?</h2>
+        <form method='get' name='form'>
+            Nickname: <input type='text' size='15' name='nickname'/><br/><br/>
+            Password: <input type='password' size='15' name='password'/><br/><br/>
+            <input type='button' value='Registrati' onClick='register()'/>
+        </form>
+        <dir id='spazio'>
+        </dir>
+        <br/>
+        <br/>
+    </body>
+</html>
