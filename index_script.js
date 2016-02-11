@@ -679,7 +679,7 @@
         
 		function socketRealTime(){
                 
-            socket = io("127.0.0.1:3000", { query: "name="+username });
+            socket = io("https://blooming-headland-8511.herokuapp.com", { query: "name="+username });
 
                 socket.on('from', function(from){
                     if(multi == 0){
