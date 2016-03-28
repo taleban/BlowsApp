@@ -32,6 +32,12 @@ while(sizeof($data)>$a){
     $encrypted[]=blowfish_encrypt($data[$a]);       //message
     $encrypted[$a] = base64_encode($encrypted[$a]);
     $a++;
+    $encrypted[]=blowfish_encrypt($data[$a]);       //time
+    $encrypted[$a] = base64_encode($encrypted[$a]);
+    $a++;
+    $encrypted[]=blowfish_encrypt($data[$a]);       //seenByUser
+    $encrypted[$a] = base64_encode($encrypted[$a]);
+    $a++;
 }
     echo json_encode($encrypted);
 }else{

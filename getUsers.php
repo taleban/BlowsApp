@@ -7,8 +7,8 @@ include "sql.php";
 
 if($_SESSION["authorized"]==1){
 $d = users();
-$a=0;
-$b=0;
+$a = 0;
+$b = 0;
 $c = 0;
 $e = 0;
     //da finire
@@ -17,6 +17,7 @@ $data["last"];
 $data["name"];
 $data["surname"];
 $data["image"];    
+$data["lastAccess"];
     
 while(sizeof($d)>$c){
     $data["user"][] = $d[$c];
@@ -26,6 +27,8 @@ while(sizeof($d)>$c){
     $data["surname"][] = $d[$c];
     $c++;
     $data["image"][] = $d[$c];
+    $c++;
+    $data["lastAccess"][] = $d[$c];
     $c++;
 }   
 
@@ -60,6 +63,10 @@ while(sizeof($data["user"])>$a){
     $encrypted3[]=blowfish_encrypt($data["last"][$a]);
     $encrypted3[$a] = base64_encode($encrypted3[$a]); //sender
     $data["last"][$a] = $encrypted3[$a];
+    //-------------------------------------
+    $encrypted4[]=blowfish_encrypt($data["lastAccess"][$a]);
+    $encrypted4[$a] = base64_encode($encrypted4[$a]); //sender
+    $data["lastAccess"][$a] = $encrypted4[$a];
     //-------------------------------------
     $a++;
 }

@@ -19,10 +19,7 @@ $surname = ucfirst(decrypt($surname));
 $password = md5(decrypt($password));
 $session = md5(decrypt($session));
 
-$risultato = registration($nickname, $name, $surname, $password);
+$risultato = registration($nickname, $name, $surname, $password, $session);
 
-if($risultato == "ok"){
-select_user($nickname, $password, '0001', $session);
-}
 echo json_encode(array($risultato));
 ?>
