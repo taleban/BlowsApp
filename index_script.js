@@ -1153,10 +1153,18 @@ function timeGapCalculator(date1, time){
                         }
                 return tx;
         }
+<<<<<<< HEAD
     }else{
     return Math.floor(diff)+" min";
     }
 }
+=======
+        }
+        
+		function socketRealTime(){
+                
+            socket = io("https://blooming-headland-8511.herokuapp.com", { query: "name="+username });
+>>>>>>> origin/master
 
 function viewLastLogin(id){
     if(document.getElementById("isOnline_" + id).classList == "profile-false"){
@@ -1188,6 +1196,7 @@ function socketRealTime() {
             if (user != username) {
                 connectedUsers.push(user);
             }
+<<<<<<< HEAD
         });
         isOnline();
     });
@@ -1241,3 +1250,6 @@ function socketRealTime() {
         }
     });
 }        
+=======
+            
+>>>>>>> origin/master
